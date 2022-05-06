@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
 import { TableBasicExample } from './tables/table-basic-example/table-basic-example.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -48,7 +47,6 @@ import { MatSortModule } from '@angular/material/sort';
     TheMatTableComponent,
     ColumnSorterComponent,
     AppComponent,
-    HelloComponent,
   ],
   bootstrap: [AppComponent],
   providers: [],
