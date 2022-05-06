@@ -34,6 +34,7 @@
     mat-table
     [dataSource]="dataSource"
     matSort
+    (matSortChange)="announceSortChange($event)"
     recycleRows
     cdkDropList
     cdkDropListOrientation="horizontal"
@@ -45,7 +46,15 @@
 
     <!-- Position Column -->
     <ng-container matColumnDef="id">
-      <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header>id</th>
+      <th
+        mat-header-cell
+        cdkDrag
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by id"
+      >
+        id
+      </th>
       <td mat-cell *matCellDef="let element">{{ element.id }}</td>
     </ng-container>
 

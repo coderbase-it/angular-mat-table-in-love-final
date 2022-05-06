@@ -1,10 +1,8 @@
-import { DataSource } from '@angular/cdk/collections';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Observable, ReplaySubject } from 'rxjs';
 
 export interface UserData {
   id: string;
@@ -67,7 +65,9 @@ table {
 td, th {
   width: 25%;
 }
-
+th.mat-sort-header-sorted {
+  color: black;
+}
 `,
   ],
   templateUrl: 'table-basic-example.component.html',
@@ -103,12 +103,19 @@ export class TableBasicExample implements AfterViewInit {
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.displayedColumnsNames, event.previousIndex, event.currentIndex);
+    moveItemInArray(
+      this.displayedColumnsNames,
+      event.previousIndex,
+      event.currentIndex
+    );
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+  announceSortChange(sortState: any) {
+    console.log('un changement', sortState);
   }
 
   constructor() {
