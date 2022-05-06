@@ -46,19 +46,18 @@
 
     <!-- Position Column -->
     <ng-container matColumnDef="id">
-      <th
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-        sortActionDescription="Sort by id"
-      >
-        id
-      </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>id</th>
       <td mat-cell *matCellDef="let element">{{ element.id }}</td>
     </ng-container>
 
     <!-- Name Column Shorter -->
-    <mat-text-column name="name" headerText="Element"></mat-text-column>
+    <mat-text-column name="name" headerText="Element" ></mat-text-column>
+
+    <!-- Provide a data accessor for getting the cell text values. -->
+    <!-- <mat-text-column name="weight" [dataAccessor]="getWeight"></mat-text-column> -->
+
+    <!-- Justify the content of the cells to the cell end. -->
+    <!-- <mat-text-column name="symbol" justify="end"></mat-text-column> -->
 
     <!-- Name Column -->
     <!-- <ng-container matColumnDef="name">
@@ -90,7 +89,3 @@
     aria-label="Select page of users"
   ></mat-paginator>
 </the-mat-table>
-
-<!-- Copyright 2019 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license -->
